@@ -46,12 +46,10 @@ const playRound = (playerSelection, computerSelection) => {
     return result;
 }
 
-window.addEventListener("DOMContentLoaded", (event) => {
-    const btn = document.getElementById("play");
+const btn = document.getElementById("play");
 
-    btn.addEventListener("click", () => {
-        const playerSelection = prompt("Please type rock, paper, or scissors");
-        const computerSelection = getComputerChoice();
-        document.getElementById("result").innerHTML = playRound(playerSelection, computerSelection);
-    });
+btn.addEventListener("click", () => {
+    const playerSelection = prompt("Please type rock, paper, or scissors");
+    const computerSelection = getComputerChoice();
+    document.getElementById("result").innerHTML = playRound(playerSelection, computerSelection);
 });
