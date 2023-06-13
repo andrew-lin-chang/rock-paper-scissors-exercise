@@ -10,9 +10,30 @@
     padding: 20px;
 }
 
+.player-choices {
+    display: flex;
+    gap: 50px;
+    margin: 10px;
+}
+
+.bottom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
 button { 
     border: 2px solid black;
     border-radius: 10px;
-    height: 30px;
-    width: 60px;
+    height: 200px;
+    width: 200px;
+}
+
+button.choice {
+    transition: all 0.5s ease;
+}
+
+button.choice:hover {
+    transform: scale(1.1);
 }

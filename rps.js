@@ -1,8 +1,8 @@
-const choices = ["ROCK", "PAPER", "SCISSORS"];
+const options = ["ROCK", "PAPER", "SCISSORS"];
 
 const getComputerChoice = () => {
-    let index = Math.floor(Math.random() * choices.length);
-    return choices[index];
+    let index = Math.floor(Math.random() * options.length);
+    return options[index];
 }
 
 const playRound = (playerSelection, computerSelection) => {
@@ -46,10 +46,13 @@ const playRound = (playerSelection, computerSelection) => {
     return result;
 }
 
-const btn = document.getElementById("play");
+const choices = document.querySelectorAll('.choice');
 
-btn.addEventListener("click", () => {
-    const playerSelection = prompt("Please type rock, paper, or scissors");
-    const computerSelection = getComputerChoice();
-    document.getElementById("result").innerHTML = playRound(playerSelection, computerSelection);
+choices.forEach(choice => {
+    choice.addEventListener('click', () => {
+        const playerSelection = choice.getAttribute('id');
+        const computerSelection = getComputerChoice();
+        document.getElementById('result').innerHTML = playRound(playerSelection, computerSelection); //inner HTML not best practice
+        document.getElementById('computer').setAttribute('src', `images/${computerSelection}.png`)
+    })
 });
