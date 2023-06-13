@@ -7,7 +7,7 @@ const getComputerChoice = () => {
 
 const playRound = (playerSelection, computerSelection) => {
 
-    computerSelection = 
+    computerSelection = computerSelection.toLowerCase();
     playerSelection = playerSelection.toLowerCase();
     let result = "";
     let playerWin = null;
