@@ -51,8 +51,8 @@ const choices = document.querySelectorAll('.choice');
 choices.forEach(choice => {
     choice.addEventListener('click', () => {
         const playerSelection = choice.getAttribute('id');
-        const computerSelection = getComputerChoice();
+        const computerSelection = getComputerChoice().toLowerCase();
         document.getElementById('result').innerHTML = playRound(playerSelection, computerSelection); //inner HTML not best practice
-        document.getElementById('computer').setAttribute('src', `images/${computerSelection}.png`)
+        document.getElementById('computer').setAttribute('src', `images/${computerSelection}.png`); //must match case of file name
     })
 });
