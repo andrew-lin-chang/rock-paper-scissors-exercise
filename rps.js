@@ -1,4 +1,4 @@
-const options = ["ROCK", "PAPER", "SCISSORS"];
+const options = ["rock", "paper", "scissors"];
 
 const getComputerChoice = () => {
     let index = Math.floor(Math.random() * options.length);
@@ -7,29 +7,30 @@ const getComputerChoice = () => {
 
 const playRound = (playerSelection, computerSelection) => {
 
-    playerSelection = playerSelection.toUpperCase();
+    computerSelection = 
+    playerSelection = playerSelection.toLowerCase();
     let result = "";
     let playerWin = null;
 
     switch(computerSelection) {
-        case "ROCK":
-            if(playerSelection === "SCISSORS") {
+        case "rock":
+            if(playerSelection === "scissors") {
                 playerWin = false;
-            } else if(playerSelection === "PAPER") {
+            } else if(playerSelection === "paper") {
                 playerWin = true;
             }
             break;
-        case "PAPER":
-            if(playerSelection === "ROCK") {
+        case "paper":
+            if(playerSelection === "rock") {
                 playerWin = false;
-            } else if(playerSelection=== "SCISSORS") {
+            } else if(playerSelection=== "scissors") {
                 playerWin = true;
             }
             break;
-        case "SCISSORS":
-            if(playerSelection === "PAPER") {
+        case "scissors":
+            if(playerSelection === "paper") {
                 playerWin = false;
-            } else if(playerSelection === "ROCK") {
+            } else if(playerSelection === "rock") {
                 playerWin = true;
             }
             break;
