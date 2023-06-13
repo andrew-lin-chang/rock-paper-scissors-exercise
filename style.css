@@ -13,7 +13,6 @@
 .player-choices {
     display: flex;
     gap: 50px;
-    padding: 50px;
     margin: 10px;
 }
 
