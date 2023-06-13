@@ -18,8 +18,10 @@
 }
 
 .bottom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 10px;
-    padding: 20px;
 }
 
 button { 
@@ -27,9 +29,12 @@ button {
     border-radius: 10px;
     height: 200px;
     width: 200px;
+}
+
+button.choice {
     transition: all 0.5s ease;
 }
 
-button:hover {
+button.choice:hover {
     transform: scale(1.1);
 }

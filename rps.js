@@ -50,7 +50,9 @@ const choices = document.querySelectorAll('.choice');
 
 choices.forEach(choice => {
     choice.addEventListener('click', () => {
+        const playerSelection = choice.getAttribute('id');
         const computerSelection = getComputerChoice();
-        document.getElementById("result").innerHTML = playRound(choice.getAttribute('id'), computerSelection); //inner HTML not best practice
+        document.getElementById('result').innerHTML = playRound(playerSelection, computerSelection); //inner HTML not best practice
+        document.getElementById('computer').setAttribute('src', `images/${computerSelection}.png`)
     })
 });
