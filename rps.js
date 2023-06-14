@@ -1,15 +1,34 @@
 const options = ["rock", "paper", "scissors"];
+let playerScore = 0;
+let computerScore = 0;
 
 const getComputerChoice = () => {
     let index = Math.floor(Math.random() * options.length);
     return options[index];
 }
 
+const updateScore = (playerWin, playerSelection, computerSelection) => {
+    let result = "";
+
+    if(playerWin === null) {
+        result = "Draw";
+    } else if(playerWin) {
+        playerScore++;
+        document.getElementById('player-score').innerHTML = playerScore;
+        result = `You Win! ${playerSelection} beats ${computerSelection}`;
+    } else {
+        computerScore++;
+        document.getElementById('computer-score').innerHTML = computerScore;
+        result = `You lose! ${computerSelection} beats ${playerSelection}`;
+    }
+
+    return result;
+}
+
 const playRound = (playerSelection, computerSelection) => {
 
     computerSelection = computerSelection.toLowerCase();
     playerSelection = playerSelection.toLowerCase();
-    let result = "";
     let playerWin = null;
 
     switch(computerSelection) {
@@ -36,15 +55,7 @@ const playRound = (playerSelection, computerSelection) => {
             break;
     }
 
-    if(playerWin === null) {
-        result = "Draw";
-    } else if(playerWin) {
-        result = `You Win! ${playerSelection} beats ${computerSelection}`;
-    } else {
-        result = `You lose! ${computerSelection} beats ${playerSelection}`;
-    }
-
-    return result;
+    return updateScore(playerWin, playerSelection, computerSelection);
 }
 
 const choices = document.querySelectorAll('.choice');
@@ -54,6 +65,7 @@ choices.forEach(choice => {
         const playerSelection = choice.getAttribute('id');
         const computerSelection = getComputerChoice().toLowerCase();
         document.getElementById('result').innerHTML = playRound(playerSelection, computerSelection); //inner HTML not best practice
-        document.getElementById('computer').setAttribute('src', `images/${computerSelection}.png`); //must match case of file name
+        document.getElementById('player').setAttribute('src', `images/${playerSelection}.png`); //must match case of file name
+        document.getElementById('computer').setAttribute('src', `images/${computerSelection}.png`); //must match case of file 
     })
 });
